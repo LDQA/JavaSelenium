@@ -3,7 +3,7 @@ package me.lukasz.demofiles;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class CreatePageDemo
+public class LoginPgDemo
 {
 
     @FindBy (xpath = "/html/body/table/tbody/tr/td[1]/form/div/center/table/tbody/tr/td[1]/table/tbody/tr[1]/td[2]/p/input")
@@ -23,4 +23,10 @@ public class CreatePageDemo
         return text.getText();
     }
 
+    public void loginToSystem(String user, String pass)
+    {
+        this.username.sendKeys(user);
+        this.password.sendKeys(pass);
+        this.loginBtn.click();
+    }
 }

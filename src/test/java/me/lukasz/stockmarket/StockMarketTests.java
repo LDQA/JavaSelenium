@@ -3,7 +3,7 @@ package me.lukasz.stockmarket;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
-import org.junit.jupiter.api.*;
+import org.junit.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -17,7 +17,7 @@ public class StockMarketTests
     private static ExtentReports extentReports;
     private ExtentTest test;
 
-    @BeforeAll
+    @Before
     @SuppressWarnings("depracation")
     public static void setup()
     {
@@ -27,7 +27,7 @@ public class StockMarketTests
         extentReports.attachReporter(htmlReporter);
     }
 
-    @BeforeEach
+    @BeforeClass
     public void init()
     {
         webDriver = new ChromeDriver();
@@ -47,13 +47,13 @@ public class StockMarketTests
         System.out.println("Biggest Fallers: " + stockWebsitePage.getText());
     }
 
-    @AfterEach
+    @AfterClass
     public void down()
     {
        //webDriver.close();
     }
 
-    @AfterAll
+    @After
     public static void afterFinish()
     {
         extentReports.flush();
